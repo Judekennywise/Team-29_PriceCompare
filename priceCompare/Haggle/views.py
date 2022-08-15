@@ -164,8 +164,8 @@ class PriceCompareView(FormMixin, DetailView):
         return_list=[]
             
         for i in result_list:
-            if i.exists():
-                return_list.append(i[0])
+            if i.exists() and list(i)!=list(productDetails.objects.filter(merchantName=merchant).filter(name__icontains=query_value).order_by('price')):
+                return_list.
         
         return return_list
 

@@ -128,7 +128,7 @@ class PriceCompareView(FormMixin, DetailView):
     form_class = CommentForm
 
     def get_success_url(self):
-        return reverse('Haggle:product', kwargs={'pk': self.object.pk})
+        return reverse('Haggle:compare', kwargs={'pk': self.object.pk})
 
     def get_product(self, *args, **kwargs):
         return get_object_or_404(productDetails,id=self.kwargs['pk'])
